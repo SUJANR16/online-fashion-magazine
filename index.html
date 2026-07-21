@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VogueVerse | Online Fashion Magazine</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f3f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-family: Georgia, serif;
+            font-size: 40px;
+        }
+
+        nav {
+            background: #8e5a61;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffe5e8;
+        }
+
+        .hero {
+            min-height: 450px;
+            background: linear-gradient(#0007, #0007),
+            url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=80");
+            background-size: cover;
+            background-position: center;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            color: white;
+            padding: 30px;
+        }
+
+        .hero div {
+            max-width: 700px;
+        }
+
+        .hero h2 {
+            font: 55px Georgia, serif;
+        }
+
+        .hero p {
+            margin: 15px 0 25px;
+            font-size: 18px;
+        }
+
+        .btn {
+            background: #d99ba3;
+            color: #222;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 50px 7%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title h2 {
+            font: 32px Georgia, serif;
+        }
+
+        .articles,
+        .lists {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        article,
+        .card,
+        form {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px #0002;
+        }
+
+        article {
+            overflow: hidden;
+        }
+
+        article img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        article div,
+        .card {
+            padding: 20px;
+        }
+
+        article h3,
+        .card h3 {
+            font-family: Georgia, serif;
+            margin-bottom: 10px;
+        }
+
+        article a {
+            color: #8e5a61;
+            font-weight: bold;
+        }
+
+        #trends {
+            background: white;
+        }
+
+        .table-box {
+            max-width: 1000px;
+            margin: auto;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #8e5a61;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f5eeee;
+        }
+
+        .card ol,
+        .card ul {
+            padding-left: 25px;
+        }
+
+        .card li {
+            margin: 5px 0;
+        }
+
+        .video-section {
+            background: #222;
+            color: white;
+        }
+
+        .video-box {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        #subscribe {
+            background: #eee4e1;
+        }
+
+        form {
+            max-width: 750px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .options {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .options label {
+            font-weight: normal;
+        }
+
+        .options input {
+            width: auto;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #8e5a61;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        aside {
+            max-width: 750px;
+            margin: 30px auto 0;
+            background: #222;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        aside a,
+        footer a {
+            color: #e5aeb5;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 800px) {
+            .articles,
+            .lists {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero h2 {
+                font-size: 45px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .articles,
+            .lists {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            .hero h2 {
+                font-size: 38px;
+            }
+
+            section {
+                padding: 40px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- Header -->
+    <header>
+        <h1>VogueVerse</h1>
+        <p>Online Fashion Magazine</p>
+        <p>Designed by Sujan R | URK24CS1187</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#latest">Latest</a></li>
+            <li><a href="#trends">Trends</a></li>
+            <li><a href="#style">Style</a></li>
+            <li><a href="#subscribe">Subscribe</a></li>
+            <li>
+                <a href="https://www.vogue.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Vogue
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div>
+                <h2>Fashion is an Attitude</h2>
+                <p>
+                    Discover the latest fashion trends, beauty ideas,
+                    street styles and inspiration from around the world.
+                </p>
+                <a href="#latest" class="btn">Explore Fashion</a>
+            </div>
+        </section>
+
+        <!-- Latest Fashion -->
+        <section id="latest">
+            <div class="title">
+                <h2>Latest Fashion Stories</h2>
+                <p>Explore our latest fashion articles and style inspiration.</p>
+            </div>
+
+            <div class="articles">
+
+                <article>
+                    <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=800&q=80"
+                         alt="Woman wearing fashionable clothes">
+                    <div>
+                        <h3>Modern Fashion</h3>
+                        <p>
+                            Modern fashion combines comfort, creativity
+                            and personal style.
+                        </p>
+                        <a href="#trends">Read More</a>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80"
+                         alt="Fashion clothes and accessories">
+                    <div>
+                        <h3>Street Style</h3>
+                        <p>
+                            Street fashion combines creativity,
+                            culture and everyday clothing.
+                        </p>
+                        <a href="#style">Read More</a>
+                    </div>
+                </article>
+
+                <article>
+                    <!-- Clickable Image -->
+                    <a href="https://www.vogue.com/fashion"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80"
+                             alt="Fashion editorial style">
+                    </a>
+                    <div>
+                        <h3>Fashion Editorial</h3>
+                        <p>
+                            Explore creative fashion editorials
+                            and inspiring looks.
+                        </p>
+                        <a href="https://www.vogue.com/fashion"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Visit Vogue
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Fashion Trends Table -->
+        <section id="trends">
+            <div class="title">
+                <h2>Fashion Trend Guide</h2>
+                <p>Popular fashion trends and styles.</p>
+            </div>
+
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Trend</th>
+                            <th>Color</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Casual</td>
+                            <td>Oversized Shirts</td>
+                            <td>Beige</td>
+                            <td>Everyday Wear</td>
+                        </tr>
+                        <tr>
+                            <td>Formal</td>
+                            <td>Modern Suits</td>
+                            <td>Black</td>
+                            <td>Office</td>
+                        </tr>
+                        <tr>
+                            <td>Streetwear</td>
+                            <td>Utility Fashion</td>
+                            <td>Olive</td>
+                            <td>Urban Style</td>
+                        </tr>
+                        <tr>
+                            <td>Sustainable</td>
+                            <td>Upcycled Clothes</td>
+                            <td>Natural</td>
+                            <td>Eco Fashion</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Style Guide and Lists -->
+        <section id="style">
+            <div class="title">
+                <h2>Fashion Style Guide</h2>
+                <p>Simple ideas to improve your personal style.</p>
+            </div>
+
+            <div class="lists">
+
+                <!-- Ordered Nested List -->
+                <div class="card">
+                    <h3>Steps to Create a Look</h3>
+                    <ol>
+                        <li>
+                            Choose your outfit
+                            <ol>
+                                <li>Select a suitable top.</li>
+                                <li>Choose matching bottoms.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            Add accessories
+                            <ol>
+                                <li>Choose a handbag.</li>
+                                <li>Add simple jewelry.</li>
+                            </ol>
+                        </li>
+                        <li>Complete your look.</li>
+                    </ol>
+                </div>
+
+                <!-- Unordered Nested List -->
+                <div class="card">
+                    <h3>Wardrobe Essentials</h3>
+                    <ul>
+                        <li>
+                            Clothing
+                            <ul>
+                                <li>White Shirt</li>
+                                <li>Denim Jeans</li>
+                                <li>Black Dress</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Accessories
+                            <ul>
+                                <li>Watch</li>
+                                <li>Sunglasses</li>
+                                <li>Handbag</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Description List -->
+                <div class="card">
+                    <h3>Fashion Terms</h3>
+                    <dl>
+                        <dt><strong>Haute Couture</strong></dt>
+                        <dd>Custom-made and high-quality fashion clothing.</dd>
+
+                        <dt><strong>Streetwear</strong></dt>
+                        <dd>Casual fashion inspired by urban culture.</dd>
+
+                        <dt><strong>Sustainable Fashion</strong></dt>
+                        <dd>Fashion that focuses on reducing environmental impact.</dd>
+                    </dl>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Video -->
+        <section class="video-section">
+            <div class="title">
+                <h2>Fashion Inspiration</h2>
+                <p>Watch our featured fashion video.</p>
+            </div>
+
+            <div class="video-box">
+                <video controls muted preload="metadata"
+                    poster="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80">
+                    <source src="https://cdn.coverr.co/videos/coverr-a-woman-in-a-fashion-store-1575/1080p.mp4"
+                            type="video/mp4">
+                    Your browser does not support the video element.
+                </video>
+            </div>
+        </section>
+
+        <!-- Subscription Form -->
+        <section id="subscribe">
+            <div class="title">
+                <h2>Subscribe to VogueVerse</h2>
+                <p>Subscribe to receive the latest fashion updates.</p>
+            </div>
+
+            <form action="#" method="post">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name"
+                           placeholder="Enter your name"
+                           minlength="3" maxlength="50" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date of Birth</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Favourite Fashion Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option>Fashion</option>
+                        <option>Beauty</option>
+                        <option>Streetwear</option>
+                        <option>Sustainable Fashion</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Favourite Style</label>
+                    <div class="options">
+                        <label><input type="radio" name="style"
+                               value="classic" required> Classic</label>
+                        <label><input type="radio" name="style"
+                               value="modern"> Modern</label>
+                        <label><input type="radio" name="style"
+                               value="street"> Street</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Topics You Like</label>
+                    <div class="options">
+                        <label><input type="checkbox"
+                               name="topic"> Fashion Trends</label>
+                        <label><input type="checkbox"
+                               name="topic"> Beauty</label>
+                        <label><input type="checkbox"
+                               name="topic"> Celebrity Style</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Tell us about your style</label>
+                    <textarea id="message" name="message"
+                              rows="5" minlength="10" maxlength="300"
+                              placeholder="Write about your fashion style..."
+                              required></textarea>
+                </div>
+
+                <button type="submit">Subscribe Now</button>
+            </form>
+
+            <!-- Contact Details -->
+            <aside>
+                <h3>Contact VogueVerse</h3>
+                <p>For fashion stories and collaboration:</p>
+                <p>
+                    Email:
+                    <a href="mailto:vogueverse@example.com">
+                        vogueverse@example.com
+                    </a>
+                </p>
+                <p>
+                    Phone:
+                    <a href="tel:+919876543210">
+                        +91 98765 43210
+                    </a>
+                </p>
+            </aside>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 VogueVerse Online Fashion Magazine</p>
+        <p>Developed by <strong>Sujan R</strong> | URK24CS1187</p>
+        <p>
+            Exercise No. 1 -
+            Design and Develop an Online Fashion Magazine Using HTML5
+        </p>
+        <p><a href="#top">Back to Top</a></p>
+    </footer>
+
+</body>
+</html>
