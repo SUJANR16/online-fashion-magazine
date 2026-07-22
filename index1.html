@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VogueVerse Subscription</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5eeee;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .form-box {
+            width: 600px;
+            max-width: 95%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px #999;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #8e5a61;
+        }
+        
+        .details {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+        
+        textarea {
+            height: 80px;
+        }
+        
+        input[type="color"] {
+            margin: 8px 0 15px;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            margin: 8px 0 15px;
+        }
+        
+        .choice {
+            margin: 8px 0 15px;
+        }
+        
+        .choice label {
+            font-weight: normal;
+            margin-right: 15px;
+        }
+        
+        .buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 25px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        input[type="submit"] {
+            background-color: #8e5a61;
+        }
+        
+        input[type="reset"] {
+            background-color: #666;
+        }
+        
+        footer {
+            text-align: center;
+            color: #555;
+            margin-top: 20px;
+        }
+        
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .form-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fashion Magazine Subscription Form -->
+    <div class="form-box">
+
+        <h1>VogueVerse</h1>
+
+        <p class="details">
+            Fashion Magazine Subscription Form<br> Sujan R | URK24CS1187
+        </p>
+
+        <form>
+
+            <!-- Name -->
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" pattern="[A-Za-z ]{3,50}" required>
+
+            <!-- Email -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+
+            <!-- Password -->
+            <label for="password">Create Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" minlength="8" required>
+
+            <!-- Age -->
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="13" max="100" required>
+
+            <!-- Date -->
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <!-- Fashion Style -->
+            <label>Favourite Fashion Style</label>
+
+            <div class="choice">
+                <label>
+                    <input type="radio" name="style" value="Classic" required>
+                    Classic
+                </label>
+
+                <label>
+                    <input type="radio" name="style" value="Modern">
+                    Modern
+                </label>
+
+                <label>
+                    <input type="radio" name="style" value="Streetwear">
+                    Streetwear
+                </label>
+            </div>
+
+            <!-- Fashion Topics -->
+            <label>Favourite Fashion Topics</label>
+
+            <div class="choice">
+                <label>
+                    <input type="checkbox" name="topic" value="Trends">
+                    Fashion Trends
+                </label>
+
+                <label>
+                    <input type="checkbox" name="topic" value="Beauty">
+                    Beauty
+                </label>
+
+                <label>
+                    <input type="checkbox" name="topic" value="Street">
+                    Street Style
+                </label>
+            </div>
+
+            <!-- Category -->
+            <label for="category">Magazine Category</label>
+
+            <select id="category" name="category" required>
+                <option value="">Select Category</option>
+                <option>Fashion Trends</option>
+                <option>Beauty</option>
+                <option>Street Style</option>
+                <option>Sustainable Fashion</option>
+            </select>
+
+            <!-- Message -->
+            <label for="message">About Your Fashion Interest</label>
+
+            <textarea id="message" name="message" placeholder="Tell us about your favourite fashion style" minlength="10" required></textarea>
+
+            <!-- Color -->
+            <label for="color">Favourite Fashion Color</label><br>
+
+            <input type="color" id="color" name="color" value="#8e5a61">
+            <br>
+
+            <!-- File -->
+            <label for="photo">Upload Fashion Profile Image</label>
+
+            <input type="file" id="photo" name="photo" accept="image/*">
+            <br><br>
+
+            <!-- Range -->
+            <label for="interest">Fashion Interest Level</label>
+
+            <input type="range" id="interest" name="interest" min="0" max="100" value="50">
+
+            <!-- Buttons -->
+            <div class="buttons">
+
+                <input type="submit" value="Subscribe">
+
+                <input type="reset" value="Reset">
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Exercise No. 2 - HTML5 Fashion Magazine Form</p>
+        <p>Done by Sujan R | URK24CS1187</p>
+    </footer>
+
+</body>
+
+</html>
